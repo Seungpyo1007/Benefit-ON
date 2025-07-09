@@ -1,0 +1,8 @@
+{
+  "name": "Copy of 혜택:ON v2",
+  "description": "학생들을 위한 다양한 할인 정보를 제공하고 AI 추천 및 영수증 관리를 도와주는 웹 애플리케이션입니다. 주변 상점의 할인 혜택을 쉽게 찾고, 개인 맞춤 추천을 받으며, 영수증을 등록하여 소비 내역을 관리할 수 있습니다.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "prompt": ""
+}
