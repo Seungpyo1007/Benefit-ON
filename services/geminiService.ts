@@ -1,11 +1,14 @@
+
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { Store, ReceiptData, Category, DiscountInfo, ReceiptAnalysisResult, SuggestedDiscount } from '../types';
 import { GEMINI_MODEL_NAME, CATEGORIES_WITH_INFO } from '../constants';
 
-const API_KEY = process.env.API_KEY;
+// Vite exposes environment variables on `import.meta.env`
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 if (!API_KEY) {
-  console.error("API_KEY is not set. Please set the environment variable.");
+  console.error("VITE_API_KEY is not set. Please set the environment variable in your .env file or hosting provider.");
+  // You might want to throw an error or handle this more gracefully
 }
 const ai = new GoogleGenAI({ apiKey: API_KEY! });
 
@@ -174,7 +177,7 @@ export const analyzeReceiptText = async (receiptText: string): Promise<ReceiptDa
   이 텍스트를 분석하여 다음 정보를 JSON 객체 형태로 추출해주세요:
   - storeName: 상점 이름 (가장 가능성 높은 이름으로)
   - items: 구매한 주요 품목 또는 서비스 목록 (문자열 배열)
-  - discountApplied: 적용된 할인 내용 (문자열, 예: "학생 할인 2000원")
+  - discountApplied: 영수증 텍스트에서 '할인', '프로모션', '쿠폰' 등 할인과 관련된 키워드를 찾아 적용된 할인 내용을 정확히 추출해주세요. 할인 내역이 없다면 '없음'으로 기재합니다. (예: "학생 할인 2000원")
   - totalAmount: 총 결제 금액 (문자열, 예: "18000원")
   - date: 영수증 날짜 (YYYY-MM-DD 형식, 추정 가능하면 포함, 아니면 오늘 날짜)
   - storeCategory: 상점의 카테고리 추정 (${Object.values(Category).join(' | ')})
@@ -220,7 +223,7 @@ export const analyzeReceiptAndSuggestDiscounts = async (base64ImageData: string,
     1.  **영수증 분석**: 먼저, 영수증 이미지를 분석하여 다음 정보를 최대한 정확하게 추출해주세요.
         *   \`storeName\`: 상점 이름
         *   \`items\`: 구매한 주요 품목 또는 서비스 목록 (문자열 배열)
-        *   \`discountApplied\`: 적용된 할인 내용 (보이는 경우). 없으면 "없음".
+        *   \`discountApplied\`: 영수증 이미지에서 '할인', '프로모션', '쿠폰 적용' 등 할인과 관련된 텍스트를 주의 깊게 찾아, 적용된 할인 내용을 정확히 기재해주세요. 만약 명시된 할인 내역이 전혀 없다면 "없음"으로 기재해주세요.
         *   \`totalAmount\`: 최종 결제 금액.
         *   \`date\`: 구매 날짜 (YYYY-MM-DD 형식). 보이지 않으면 오늘 날짜.
         *   \`storeCategory\`: 다음 목록에서 상점의 카테고리를 추론해주세요: ${Object.values(Category).join(', ')}.

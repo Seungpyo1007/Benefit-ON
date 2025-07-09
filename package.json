@@ -1,5 +1,6 @@
+
 {
-  "name": "copy-of-혜택:on-v2",
+  "name": "benefit-on-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,13 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/genai": "^1.6.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "@google/genai": "^1.6.0"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "typescript": "~5.7.2",
-    "vite": "^6.2.0"
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.1"
   }
 }
