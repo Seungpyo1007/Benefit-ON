@@ -94,7 +94,7 @@ Benefit-ON/
 
 이 프로젝트는 Vercel를 통해 배포됩니다.
 
-🌐 **배포 링크**: [https://benefit-on-v2.vercel.app/](https://benefit-on.vercel.app/)
+🌐 **배포 링크**: [https://benefit-on.vercel.app/](https://benefit-on.vercel.app/)
 
 ## 📱 사용법
 
