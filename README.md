@@ -68,7 +68,7 @@
 ## 🔧 프로젝트 구조
 
 ```
-SDHS-HACKATHON-2025-Team10/
+Benefit-ON/
 ├── components/          # React 컴포넌트
 │   ├── Header.tsx      # 헤더 컴포넌트
 │   ├── StoreCard.tsx   # 매장 카드 컴포넌트
@@ -94,7 +94,7 @@ SDHS-HACKATHON-2025-Team10/
 
 이 프로젝트는 Vercel를 통해 배포됩니다.
 
-🌐 **배포 링크**: [https://benefit-on-v2.vercel.app/](https://benefit-on-v2.vercel.app/)
+🌐 **배포 링크**: [https://benefit-on-v2.vercel.app/](https://benefit-on.vercel.app/)
 
 ## 📱 사용법
 
